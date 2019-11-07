@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Tugas 3 - Penambangan Data</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Penambangan Data</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Home</a>
+                            </li>
+                            <li >
+                                <a href="../tugas1/">Tugas 1</a>
+                            </li>
+                            <li >
+                                <a href="../tugas2/">Tugas 2</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Tugas 3</a>
+                            </li>
+                            <li >
+                                <a href="../tugas4/">Tugas 4</a>
+                            </li>
+                            <li >
+                                <a href="../tugas5/">Tugas 5</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../tugas2/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../tugas4/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#tugas-3">Tugas 3</a></li>
+            <li><a href="#seleksi-fitur">Seleksi Fitur</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="tugas-3">Tugas 3</h1>
+<h2 id="seleksi-fitur">Seleksi Fitur</h2>
+<p>Seleksi  fitur  merupakan  teknik  untuk mengurangi  dimensi  atribut.  Pengurangan dimensi tersebut dilakukan untuk mendapatkan atribut-atribut yang relevan dan tidak berlebihan sehingga dapat mempercepat proses klasifikasi dan dapat meningkatkan akurasi dari algoritme klasifikasi. (Arifin, 2015). Metode seleksi fitur yang  biasa digunakan  dalam  penelitian  adalah Information  gain.</p>
+<h4 id="information-gain">Information Gain</h4>
+<p>Information  Gain  merupakan  metode seleksi fitur paling sederhana dengan melakukan perangkingan  atribut  dan  banyak  digunakan dalam  aplikasi  kategorisasi teks,  analisis  data microarray dan analisis data citra. (Chormunge &amp;  Jena,  2016).  Information  Gain  dapat membantu mengurangi  noise yang  disebabkan oleh fitur-fitur yang tidak relevan. Information Gain mendeteksi fitur-fitur yang paling banyak memiliki informasi  berdasarkan  kelas tertentu. Penentuan  atribut  terbaik  dilakukan  dengan menghitung nilai entropy terlebih dahulu. </p>
+<h4 id="entropy">Entropy</h4>
+<p>Entropy merupakan ukuran ketidakpastian kelas dengan menggunakan probabilitas kejadian atau atribut tertentu. (Shaltout, et al., 2014). Rumus untuk menghitung entropy ditunjukkan pada persamaan (1). Setelah mendapatkan nilai entropy, maka perhitungan Information Gain dapat dilakukan dengan menggunakan persamaan (2). (Firmahsyah &amp; Gantini, 2016).</p>
+<p>$$
+E(T) = \sum_{i=1}^n {-P_i\log{P_i}}
+$$
+Dengan n adalah jumlah nilai yang ada pada kelas klasifikasi dan Pi merupakan jumlah sampel untuk kelas i.</p>
+<p>$$
+\operatorname{Gain}(S, A) = \operatorname{Entropy}(S) - \sum_{v\in{A}} \frac{S_{X,v}}{S} E(S_{X,v})
+$$
+Dengan A merupakan atribut, v adalah nilai yang mungkin untuk atribut A, Values(A) adalah himpunan nilai-nilai yang mungkin untuk A, |Sv| adalah jumlah seluruh sampel data dan Entropy(Sv) adalah entropy untuk sampel-sampel yang memiliki nilai v.</p>
+<h4 id="contoh-program">Contoh program</h4>
+<p>Data tentang kondisi cuaca :</p>
+<pre><code class="python">from pandas import *
+from IPython.display import HTML, display
+from tabulate import tabulate
+from math import log
+from sklearn.feature_selection import mutual_info_classif
+
+def table(df): 
+    display(HTML(tabulate(df, tablefmt='html', headers='keys', showindex=False)))
+df = read_csv('featureselection.csv',usecols = [0,1,2,3,4], sep=';')
+table(df)
+</code></pre>
+
+<p>Tampilan :</p>
+<table>
+<thead>
+<tr>
+<th align="center">outlook</th>
+<th align="center">temperature</th>
+<th align="center">humidity</th>
+<th align="center">windy</th>
+<th align="center">play</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">sunny</td>
+<td align="center">hot</td>
+<td align="center">high</td>
+<td align="center">False</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="center">sunny</td>
+<td align="center">hot</td>
+<td align="center">high</td>
+<td align="center">True</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="center">overcast</td>
+<td align="center">hot</td>
+<td align="center">high</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">mild</td>
+<td align="center">high</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">cool</td>
+<td align="center">normal</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">cool</td>
+<td align="center">normal</td>
+<td align="center">True</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="center">overcast</td>
+<td align="center">cool</td>
+<td align="center">normal</td>
+<td align="center">True</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">sunny</td>
+<td align="center">mild</td>
+<td align="center">high</td>
+<td align="center">False</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="center">sunny</td>
+<td align="center">cool</td>
+<td align="center">normal</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">mild</td>
+<td align="center">normal</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">sunny</td>
+<td align="center">mild</td>
+<td align="center">normal</td>
+<td align="center">True</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">overcast</td>
+<td align="center">mild</td>
+<td align="center">high</td>
+<td align="center">True</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">overcast</td>
+<td align="center">hot</td>
+<td align="center">normal</td>
+<td align="center">False</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">mild</td>
+<td align="center">high</td>
+<td align="center">True</td>
+<td align="center">no</td>
+</tr>
+</tbody>
+</table>
+<p>Menghitung Entropy</p>
+<pre><code class="py">def findEntropy(column):
+    rawGroups = df.groupby(column)
+    targetGroups = [[key, len(data), len(data)/df[column].size] for key,data in rawGroups]
+    targetGroups = DataFrame(targetGroups, columns=['play', 'count', 'probability'])
+    return sum([-x*log(x,2) for x in targetGroups['probability']]), targetGroups, rawGroups
+
+entropyTarget, groupTargets, _ = findEntropy('play')
+table(groupTargets)
+print('Entropy =', entropyTarget)
+</code></pre>
+
+<p>Tampilan :</p>
+<table>
+<thead>
+<tr>
+<th align="center">play</th>
+<th align="center">count</th>
+<th align="center">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">no</td>
+<td align="center">5</td>
+<td align="center">0.357143</td>
+</tr>
+<tr>
+<td align="center">yes</td>
+<td align="center">9</td>
+<td align="center">0.642857</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Entropy = 0.9402859586706309
+</code></pre>
+
+<p>Menghitung Gain</p>
+<pre><code class="py">def findGain(column):
+    entropyOutlook, groupOutlooks, rawOutlooks = findEntropy(column)
+    table(groupOutlooks)
+    gain = entropyTarget-sum(len(data)/len(df)*sum(-x/len(data)*log(x/len(data),2) 
+                for x in data.groupby('play').size()) for key,data in rawOutlooks)
+    print(&quot;Gain of&quot;,column,&quot;is&quot;,gain)
+    return gain
+
+gains = [[x,findGain(x)] for x in ['outlook','temperature','humidity','windy']]
+</code></pre>
+
+<p>Tampilan :</p>
+<table>
+<thead>
+<tr>
+<th align="center">value</th>
+<th align="center">count</th>
+<th align="center">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">overcast</td>
+<td align="center">4</td>
+<td align="center">0.285714</td>
+</tr>
+<tr>
+<td align="center">rainy</td>
+<td align="center">5</td>
+<td align="center">0.357143</td>
+</tr>
+<tr>
+<td align="center">sunny</td>
+<td align="center">5</td>
+<td align="center">0.357143</td>
+</tr>
+</tbody>
+</table>
+<pre><code>gain of outlook is 0.2467498197744391
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">value</th>
+<th align="center">count</th>
+<th align="center">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">cool</td>
+<td align="center">4</td>
+<td align="center">0.285714</td>
+</tr>
+<tr>
+<td align="center">hot</td>
+<td align="center">4</td>
+<td align="center">0.285714</td>
+</tr>
+<tr>
+<td align="center">mild</td>
+<td align="center">6</td>
+<td align="center">0.428571</td>
+</tr>
+</tbody>
+</table>
+<pre><code>gain of temperature is 0.029222565658954647
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">value</th>
+<th align="center">count</th>
+<th align="center">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">high</td>
+<td align="center">7</td>
+<td align="center">0.5</td>
+</tr>
+<tr>
+<td align="center">normal</td>
+<td align="center">7</td>
+<td align="center">0.5</td>
+</tr>
+</tbody>
+</table>
+<pre><code>gain of humidity is 0.15183550136234136
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="center">value</th>
+<th align="center">count</th>
+<th align="center">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">False</td>
+<td align="center">8</td>
+<td align="center">0.571429</td>
+</tr>
+<tr>
+<td align="center">True</td>
+<td align="center">6</td>
+<td align="center">0.428571</td>
+</tr>
+</tbody>
+</table>
+<pre><code>gain of windy is 0.04812703040826927
+</code></pre>
+
+<h4 id="ranking-fitur">Ranking Fitur</h4>
+<p>Hasil dari pengurutan gain dari yang terbesar ke yang terkecil, digunakan untuk menghilangkan fitur yang kurang penting / relevan.</p>
+<pre><code class="py">table(DataFrame(gains, columns=[&quot;Feature&quot;, &quot;Gain Score&quot;]).sort_values(&quot;Gain Score&quot;)[::-1])
+</code></pre>
+
+<p>Tampilan :</p>
+<table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center">Gain Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">outlook</td>
+<td align="center">0.24675</td>
+</tr>
+<tr>
+<td align="center">humidity</td>
+<td align="center">0.151836</td>
+</tr>
+<tr>
+<td align="center">windy</td>
+<td align="center">0.048127</td>
+</tr>
+<tr>
+<td align="center">temperature</td>
+<td align="center">0.0292226</td>
+</tr>
+</tbody>
+</table>
+<p>Sumber :</p>
+<p>https://www.researchgate.net/publication/326571453_Seleksi_Fitur_Information_Gain_untuk_Klasifikasi_Penyakit_Jantung_Menggunakan_Kombinasi_Metode_K-Nearest_Neighbor_dan_Naive_Bayes</p>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

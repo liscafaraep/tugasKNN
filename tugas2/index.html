@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Tugas 2 - Penambangan Data</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Penambangan Data</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Home</a>
+                            </li>
+                            <li >
+                                <a href="../tugas1/">Tugas 1</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Tugas 2</a>
+                            </li>
+                            <li >
+                                <a href="../tugas3/">Tugas 3</a>
+                            </li>
+                            <li >
+                                <a href="../tugas4/">Tugas 4</a>
+                            </li>
+                            <li >
+                                <a href="../tugas5/">Tugas 5</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../tugas1/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../tugas3/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#tugas-2">Tugas 2</a></li>
+        <li class="main "><a href="#mengukur-jarak-data">Mengukur Jarak Data</a></li>
+            <li><a href="#mengukur-jarak-tipe-numerik">Mengukur Jarak Tipe Numerik</a></li>
+            <li><a href="#mengukur-jarak-atribut-binary">Mengukur Jarak Atribut Binary</a></li>
+            <li><a href="#mengukur-jarak-tipe-categorical">Mengukur Jarak Tipe categorical</a></li>
+            <li><a href="#mengukur-jarak-tipe-ordinal">Mengukur Jarak Tipe Ordinal</a></li>
+            <li><a href="#menghitung-jarak-tipe-campuran">Menghitung Jarak Tipe Campuran</a></li>
+            <li><a href="#contoh-program">Contoh Program</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="tugas-2">Tugas 2</h1>
+<h1 id="mengukur-jarak-data">Mengukur Jarak Data</h1>
+<h2 id="mengukur-jarak-tipe-numerik">Mengukur Jarak Tipe Numerik</h2>
+<p>Salah satu tantangan dalam era ini dengan datatabase yang memiliki banyak tipe data. Mengukur jarak adalah komponen utama dalam algoritma clustering berbasis jarak. Alogritma seperit Algoritma Partisioning misal K-Mean, K-medoidm dan fuzzy c-mean dan rough clustering bergantung pada jarak untuk melakukan pengelompokkan</p>
+<p>Sebelum menjelaskan tentang beberapa macam ukuran jarak, kita mendefinisikan terlebih dahulu yaiut v1,v2v1,v2 menyatakan dua vektor yang menyatakan v1=x1,x2,...,xn,v2=y1,y2,...,yn,v1=x1,x2,...,xn,v2=y1,y2,...,yn, dimana xi,yixi,yi disebut attribut. Ada beberapa ukuran similaritas datau ukuran jarak, diantaranya :</p>
+<h3 id="minkowski-distance"><em>Minkowski Distance</em></h3>
+<p>Kelompok Minkowski diantaranya adalah Euclidean distance dan Manhattan distance, yang menjadi kasus khusus dari Minkowski distance. Minkowski distance dinyatakan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e001" /></p>
+<p>dimana m adalah bilangan riel positif dan  <em>x<strong>i<em> dan </em>y</strong>i</em> adalah dua vektor dalam runang dimensi nn Implementasi ukuran jarak Minkowski pada model clustering data atribut dilakukan normalisasi untuk menghindari dominasi dari atribut yang memiliki skala data besar.</p>
+<h3 id="manhattan-distance"><em>Manhattan distance</em></h3>
+<p>Manhattan distance adalah kasus khsusu dari jarak Minkowski distance pada m = 1. Seperti Minkowski Distance, Manhattan distance sensitif terhadap outlier. BIla ukuran ini digunakan dalam algoritma clustering , bentuk cluster adalah hyper-rectangular. Ukuran ini didefinisikan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e002" /></p>
+<h3 id="euclidean-distance"><em>Euclidean distance</em></h3>
+<p>Jarak yang paling terkenal yang digunakan untuk data numerik adalah jarak Euclidean. Ini adalah kasus khusus dari jarak Minkowski ketika m = 2. Jarak Euclidean berkinerja baik ketika digunakan untuk kumpulan data cluster kompak atau terisolasi . Meskipun jarak Euclidean sangat umum dalam pengelompokan, ia memiliki kelemahan: jika dua vektor data tidak memiliki nilai atribut yang sama, kemungkin memiliki jarak yang lebih kecil daripada pasangan vektor data lainnya yang mengandung nilai atribut yang sama. Masalah lain dengan jarak Euclidean sebagai fitur skala terbesar akan mendominasi yang lain. Normalisasi fitur kontinu adalah solusi untuk mengatasi kelemahan ini.</p>
+<h3 id="average-distance"><em>Average Distance</em></h3>
+<p>Berkenaan dengan kekurangan dari Jarak Euclidian Distance diatas, rata rata jarak adala versi modikfikasid ari jarak Euclidian untuk memperbaiki hasil. Untuk dua titik x,yx,y dalam ruang dimensi nn, rata-rata jarak didefinisikan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e003" /></p>
+<h3 id="weighted-euclidean-distance"><em>Weighted euclidean distance</em></h3>
+<p>Jika berdasarkan tingkatan penting dari masing masing atribut ditentukan, maka Weighted Euclidean distance adalah modifikisasi lain dari jarak Euclidean distance yang dapat digunakan. Ukuran ini dirumuskan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e004" />dimana wi adalah bobot yang diberikan pada atribut ke i.</p>
+<h3 id="chord-distance"><em>Chord distance</em></h3>
+<p>Chord distance adalah salah satu ukuran jarak modifikasi Euclidean distance untuk mengatasi kekurangan dari Euclidean distance. Ini dapat dipecahkan juga dengan menggunakan skala pengukuran yang baik. Jarak ini dapat juga dihitung dari data yang tidak dinormalisasi . Chord distance didefinisikan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e005" /></p>
+<p>dimana ‖<em>x</em>‖2  adalah <em>L</em>2-norm <img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e006" />.</p>
+<h3 id="mahalanobis-distance"><em>Mahalanobis distance</em></h3>
+<p>Mahalanobis distance berdasarkan data berbeda dengan Euclidean dan Manhattan distances yang bebas antra data dengan data yang lain. Jarak Mahalanobis yang teratur dapat digunakan untuk mengekstraksi hyperellipsoidal clusters. Jarak Mahalanobis dapat mengurangi distorsi yang disebabkan oleh korelasi linier antara fitur dengan menerapkan transformasi pemutihan ke data atau dengan menggunakan kuadrat Jarak mahalanobis. Mahalanobis distance dinyatakan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e007" /></p>
+<p>dimana S adalah matrik covariance data.</p>
+<h3 id="cosine-measure"><em>Cosine measure</em></h3>
+<p>Ukuran Cosine similarity lebih banyak digunakan dalam similaritas dokumen dan dinyatakan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e008" /></p>
+<p>dimana ∥y∥2 adalah Euclidean norm dari vektor y=(y1,y2,…,yn)y=(y1,y2,…,yn) didefinisikan dengan <img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e009" /></p>
+<h3 id="pearson-correlation"><em>Pearson correlation</em></h3>
+<p>Pearson correlation banyak digunakan dalam data expresi gen. Ukuran similaritas ini menghitung similaritas antara duan bentuk pola expresi gen. Pearson correlation didefinisikan dengan</p>
+<p><img alt="img" src="https://journals.plos.org/plosone/article/file?type=thumbnail&amp;id=info:doi/10.1371/journal.pone.0144059.e010" />, where <em>μ</em><em>x</em></p>
+<p>The Pearson correlation kelemahannya adalah sensitif terhadap outlier</p>
+<h2 id="mengukur-jarak-atribut-binary">Mengukur Jarak Atribut Binary</h2>
+<p>Mari kita lihat similaritas dan desimilirity untuk objek yang dijelaskan oleh atribut biner simetris atau asimetris. Aatribut biner hanya memiliki dua status: 0 dan 1 Contoh atribut perokok menggambarkan seorang pasien, misalnya, 1 menunjukkan bahwa pasien merokok, sedangkan 0 menunjukkan pasien tidak merokok. Memperlakukan atribut biner sebagai atribut numerik tidak diperkenankan. Oleh karena itu, metode khusus untuk data biner diperlukan untuk membedakan komputasi.</p>
+<p>Jadi, bagaimana kita bisa menghitung ketidaksamaan antara dua atribut biner? ”Satu pendekatan melibatkan penghitungan matriks ketidaksamaan dari data biner yang diberikan. Jika semua atribut biner dianggap memiliki bobot yang sama, kita memiliki tabel kontingensi 2×2 di mana qq adalah jumlah atribut yang sama dengan 1 untuk kedua objek ii dan jj, rr adalah jumlah atribut yang sama dengan 1 untuk objek ii tetapi 0 untuk objek jj, ss adalah jumlah atribut yang sama dengan 0 untuk objek ii tetapi 1 untuk objek jj, dan tt adalah jumlah atribut yang sama dengan 0 untuk kedua objek ii dan jj. Jumlah total atribut adalah pp, di mana p=q+r+s+tp=q+r+s+t</p>
+<p>Ingatlah bahwa untuk atribut biner simetris, masing-masing nilai bobot yang sama.Dissimilarity yang didasarkan pada atribut aymmetric binary disebut symmetric binary dissimilarity. Jika objek i dan j dinyatakan sebagai atribut biner simetris, maka dissimilarity antarii dan j adalah
+$$
+d ( i , j ) = \frac { r + s } { q + r + s + t }
+$$
+Untuk atribut biner asimetris, kedua kondisi tersebut tidak sama pentingnya, seperti hasil positif (1) dan negatif (0) dari tes penyakit. Diberikan dua atribut biner asimetris, pencocokan keduanya 1 (kecocokan positif) kemudian dianggap lebih signifikan daripada kecocokan negatif. Ketidaksamaan berdasarkan atribut-atribut ini disebut asimetris biner dissimilarity, di mana jumlah kecocokan negatif, t, dianggap tidak penting dan dengan demikian diabaikan. Berikut perhitungannya
+$$
+d ( i , j ) = \frac { r + s } { q + r + s }
+$$
+Kita dapat mengukur perbedaan antara dua atribut biner berdasarkan pada disimilarity. Misalnya, biner asimetris kesamaan antara objek ii dan jj dapat dihitung dengan
+$$
+\operatorname { sim } ( i , j ) = \frac { q } { q + r + s } = 1 - d ( i , j )
+$$
+Persamaan similarity ini disebut dengan <strong>Jaccard coefficient</strong></p>
+<h2 id="mengukur-jarak-tipe-categorical">Mengukur Jarak Tipe categorical</h2>
+<p><strong>Li, C., &amp; Li, H. (2010). A Survey of Distance Metrics for Nominal Attributes. JSW, 5(11), 1262-1269.</strong></p>
+<h3 id="overlay-metric"><em>Overlay Metric</em></h3>
+<p>Ketika semua atribut adalah bertipe nominal, ukuran jarak yang paling sederhana adalah dengan Ovelay Metric (OM) yang dinyatakan dengan
+$$
+d ( x , y ) = \sum _ { i = 1 } ^ { n } \delta ( a _ { i } ( x ) , a _ { i } ( y ) )
+$$
+dimana nn adalah banyaknya atribut, ai(x)ai(x) dan ai(y)ai(y) adalah nilai atribut ke ii yaitu AiAi dari masing masing objek xx dan yy, δ (ai(x),ai(y))δ (ai(x),ai(y)) adalah 0 jika ai(x)=ai(y) dan 1 jika sebaliknya.</p>
+<p>OM banyak digunakan oleh instance-based learning dan locally weighted learning. Jelas sekali , ini sedikit beruk untuk mengukur jarak antara masing-masing pasangan sample, karena gagal memanfaatkan tambahan informasi yang diberikan oleh nilai atribut nominal yang bisa membantu dalam generalisasi.</p>
+<h3 id="value-difference-metric-vdm"><em>Value Difference Metric (VDM)</em></h3>
+<p>VDM dikenalkan oleh Standfill and Waltz, versi sederhana dari VDM tanpa skema pembobotan didefinsisikan dengan
+$$
+d ( x , y ) = \sum _ { i = 1 } ^ { n } \sum _ { c = 1 } ^ { C } \left| P ( c | a _ { i } ( x ) ) - P ( c | a _ { i } ( y ) ) \right |
+$$
+dimana CCadalah banyaknya kelas, P(c|ai(x))P(c|ai(x)) adalah probabilitas bersyarat dimana kelas xx adalah cc dari atribut AiAi, yang memiliki nilai ai(x)ai(x), P(c|ai(y))P(c|ai(y)) adalah probabilitas bersyarat dimana kelas yy adalah cc dengan atribut AiAi memiliki nilai ai(y)ai(y)</p>
+<p>VDM mengasumsikan bahwa dua nilai dari atribut adalah lebih dekat jika memiliki klasifikasi sama. Pendekatan lain berbasi probabilitas adalah SFM (Short and Fukunaga Metric) yang kemudian dikembangkan oleh Myles dan Hand dan didefinisikan dengan
+$$
+d ( x , y ) = \sum _ { c = 1 } ^ { C } \left | P ( c | x ) - P ( c | y ) \right|
+$$
+diman probabilitas keanggotaan kelas diestimasi dengan P(c|x) dan P(c|y) didekati dengan Naive Bayes,</p>
+<h3 id="minimum-risk-metric-mrm"><em>Minimum Risk Metric (MRM)</em></h3>
+<p>Ukuran ini dipresentasikan oleh Blanzieri and Ricci, berbeda dari SFM yaitu meminimumkan selisih antara kesalahan berhingga dan kesalahan asymtotic. MRM meminimumkan risk of misclassification yang didefinisikan dengan
+$$
+d ( x , y ) = \sum _ { c = 1 } ^ { C } P ( c | x ) ( 1 - P ( c | y ) )
+$$</p>
+<h2 id="mengukur-jarak-tipe-ordinal"><strong>Mengukur Jarak Tipe Ordinal</strong></h2>
+<p><strong>Han, J., Pei, J., &amp; Kamber, M. (2011). Data mining: concepts and techniques. Elsevier</strong>.</p>
+<p>Nilai-nilai atribut ordinal memiliki urutan atau peringkat, namun besarnya antara nilai-nilai berturut-turut tidak diketahui. Contohnya tingkatan kecil, sedang, besar untuk atribut ukuran. Atribut ordinal juga dapat diperoleh dari diskritisasi atribut numerik dengan membuat rentang nilai ke dalam sejumlah kategori tertentu. Kategori-kategori ini disusun dalam peringkat. Yaitu, rentang atribut numerik dapat dipetakan ke atribut ordinal ff yang memiliki MfMf state. Misalnya, kisaran suhu atribut skala-skala (dalam Celcius)dapat diatur ke dalam status berikut: −30 hingga −10, −10 hingga 10, 10 hingga 30, masing-masing mewakili kategori suhu dingin, suhu sedang, dan suhu hangat. MM adalah jumlah keadaan yang dapat dilakukan oleh atribut ordinalmemiliki. State ini menentukan peringkat 1,...,Mf1,...,Mf</p>
+<p>Perlakuan untuk atribut ordinal adalah cukup sama dengan atribut numerik ketika menghitung disimilarity antara objek. Misalkan ff adalah atribut-atribut dari atribut ordinal dari nn objek. Menghitung disimilarity terhadap f fitur sebagai berikut:</p>
+<ul>
+<li>
+<p>Nilai ff untuk objek ke-ii adalah xifxif, dan ff memiliki MfMf status urutan , mewakili peringkat 1,..,Mf1,..,Mf Ganti setiap xifxif dengan peringkatnya, rif∈{1...Mf}rif∈{1...Mf}</p>
+</li>
+<li>
+<p>Karena setiap atribut ordinal dapat memiliki jumlah state yang berbeda, diperlukan untuk memetakan rentang setiap atribut ke [0,0, 1.0] sehingga setiap atribut memiliki bobot yang sama. Perl melakukan normalisasi data dengan mengganti peringkat rifrif dengan
+  $$
+  z _ { i f } = \frac { r _ { i f } - 1 } { M _ { f } - 1 }
+  $$</p>
+</li>
+<li>
+<p>Dissimilarity kemudian dihitung dengan menggunakan ukuran jarak seperti atribut numerik dengan data yang baru setelah ditransformasi $ z _ { i f }$</p>
+</li>
+</ul>
+<h2 id="menghitung-jarak-tipe-campuran"><strong>Menghitung Jarak Tipe Campuran</strong></h2>
+<p><strong>Wilson, D. R., &amp; Martinez, T. R. (1997). Improved heterogeneous distance functions. Journal of artificial intelligence research, 6, 1-34.</strong></p>
+<p>Menghitung ketidaksamaan antara objek dengan atribut campuran yang berupa nominal, biner simetris, biner asimetris, numerik, atau ordinal yang ada pada kebanyakan databasae dapat dinyatakan dengan memproses semua tipe atribut secara bersamaan. Salah satu teknik tersebut menggabungkan atribut yang berbeda ke dalam matriks ketidaksamaan tunggal dan menyatakannya dengan skala interval antar [0,0,1.0][0,0,1.0]. Misalkan data berisi atribut pp tipe campuran. Ketidaksamaan (disimilarity ) antara objek ii dan jj dinyatakan dengan
+$$
+d ( i , j ) = \frac { \sum _ { f = 1 } ^ { p } \delta _ { i j } ^ { ( f ) } d _ { i j } ^ { ( f ) } } { \sum _ { f = 1 } ^ { p } \delta _ { i j } ^ { ( f ) } }
+$$
+dimana δfij=0δijf=0 - jika xifxif atau xjfxjf adalah hilang (i.e., tidak ada pengukuran dari atribut f untuk objek ii atau objek jj)</p>
+<ul>
+<li>jika xif=xjf=0xif=xjf=0 dan</li>
+<li>atribut ff adalah binary asymmetric,</li>
+</ul>
+<p>selain itu δfij=1δijf=1</p>
+<p>Kontribusi dari atribut ff untuk dissimilarity antara i dan j (yaitu.dfijdijf) dihitung bergantung pada tipenya,</p>
+<ul>
+<li>
+<p>Jika ff adalah numerik, 
+  $$
+  d_{ij}^{f}=\frac{ |x <em>{if}-x</em>{jf}|}{max_hx_{hf}-min_hx{hf}}
+  $$
+  , di mana h menjalankan semua nilai objek yang tidak hilang untuk atribut f</p>
+</li>
+<li>
+<p>Jika ff adalah nominal atau binary,$d_{ij}^{f}=0 $jika xif=xjfxif=xjf, sebaliknya dfij=1dijf=1</p>
+</li>
+<li>
+<p>Jika ff adalah ordinal maka hitung rangking rifrif dan 
+  $$
+  \mathcal z_{if}=\frac {r_{if}-1}{M_f-1}
+  $$
+   , dan perlakukan zifzif sebagai numerik.</p>
+</li>
+</ul>
+<h2 id="contoh-program">Contoh Program</h2>
+<pre><code class="py">import pandas as pd
+pd.read_csv(&quot;hayes-roth.csv&quot;)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="right">name</th>
+<th align="right">hobby</th>
+<th align="right">age</th>
+<th align="right">educationallevel</th>
+<th align="right">maritalstatus</th>
+<th align="right">class</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">92</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">10</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">2</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">83</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">61</td>
+<td align="right">2</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">107</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="right">...</td>
+<td align="right">...</td>
+<td align="right">...</td>
+<td align="right">...</td>
+<td align="right">...</td>
+<td align="right">...</td>
+<td>...</td>
+</tr>
+<tr>
+<td align="right">127</td>
+<td align="right">44</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">3</td>
+<td>3</td>
+</tr>
+<tr>
+<td align="right">128</td>
+<td align="right">40</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td>1</td>
+</tr>
+<tr>
+<td align="right">129</td>
+<td align="right">90</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="right">130</td>
+<td align="right">21</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td>2</td>
+</tr>
+<tr>
+<td align="right">131</td>
+<td align="right">9</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>132 rows × 6 columns</p>
+<h5 id="menghitung-jarak-numerik">Menghitung Jarak Numerik</h5>
+<p>Numeric attribute adalah atribut kuantitatif, yaitu dapat dihitung banyaknya dan dapat diwakilkan dalam bilangan integer atau real. Numeric attribute dapat berupa skala interval(interval-scaled) atau skala-rasio(ration-scaled), kedua-duanya memiliki nilai mean, median, dan mode. Untuk numeric attribute interval-scaled tidak memiliki true zero-point(nilai nol yang sebenarnya), sedangkan yang ratio-scaled memiliki true zero-point.</p>
+<pre><code class="py">def chordDist(v1,v2,jenis):
+    jumlah=0
+    normv1=0
+    normv2=0
+    for x in range (len(jenis)):
+        normv1=normv1+(int(a.values.tolist()[v1][jenis[x]])**2)
+        normv2=normv2+(int(a.values.tolist()[v2][jenis[x]])**2)
+        jumlah=jumlah+(int(a.values.tolist()[v1][jenis[x]])*int(a.values.tolist()[v2][jenis[x]]))
+    return ((2-(2*jumlah/(normv1*normv2)))**0.5)  
+</code></pre>
+
+<h5 id="menghitung-jarak-binary">Menghitung Jarak Binary</h5>
+<p>Binary attribute adalah nominal atribut yang hanya memiliki dua kategori atau keadaan yaitu 0 dan 1. 0 berarti tidak ada dan 1 berarti ada. Binary attribute biasanya diartikan sebagai Boolean jika kedua keadaannya adalah true(benar) dan false(salah). Binary attribute bisa simetris(symmetric) dan bisa asimetris(assymmetric). Simetris jika kedua nilainya bernilai sama/setimbang harganya, sehingga tidak bisa diberi kode 0 atau 1, sedangkan asimetris kedua nilainya tidak setimbang harganya, sehingga dapat diberi kode 0 atau 1.</p>
+<pre><code class="py">def binaryDist(v1,v2,jenis):
+    q=0
+    r=0
+    s=0
+    t=0
+    for x in range (len(jenis)):
+        if (int(a.values.tolist()[v1][jenis[x]]))==1 and (int(a.values.tolist()[v2][jenis[x]]))==1:
+            q=q+1
+        elif (int(a.values.tolist()[v1][jenis[x]]))==1 and (int(a.values.tolist()[v2][jenis[x]]))==2:
+            r=r+1
+        elif (int(a.values.tolist()[v1][jenis[x]]))==2 and (int(a.values.tolist()[v2][jenis[x]]))==1:
+            s=s+1
+        else:
+            t=t+1
+    return ((r+s)/(q+r+s+t))
+</code></pre>
+
+<h5 id="menghitung-jarak-ordinal">Menghitung Jarak Ordinal</h5>
+<p>Ordinal attribute adalah atribut dengan nilai-nilai yang kemungkinan memiliki  urutan yang mempunyai arti atau tingkatan(ranking), akan tetapi jarak antara nilai-nilainya tidak diketahui. Ordinal attribute berguna untuk mendaftarkan taksiran suatu kualitas yang tidak bisa diukur secara obyektif. Oleh karena itu ordinal attribute biasanya digunakan dalam survey atau rating.</p>
+<pre><code class="py">def ordDist(v1,v2,jenis):
+    jumlah=0
+    for x in range (len(jenis)):
+        z1=int(a.values.tolist()[v1][jenis[x]])-1
+        z2=int(a.values.tolist()[v2][jenis[x]])-1
+        jumlah=jumlah+chordDist(z1,z2,jenis)
+    return (jumlah)
+</code></pre>
+
+<h5 id="atribut-nominal">Atribut Nominal</h5>
+<p>Nominal attribute adalah atribut yang nilainya berupa simbol-simbol atau nama-nama benda. Dan nilainya tidak memiliki urutan yang memiliki arti. Pada nominal attribute, operasi matematika pada nilai-nilainya tidak berarti. Sehingga, tidak masuk akal untuk mencari nilai mean(rata-rata)nya atau nilai median(tengah) nya, kecuali untuk mode(nilai yang paling sering muncul)nya.</p>
+<p>Sumber :</p>
+<p>https://github.com/mulaab/datamining/tree/master/memahami-data</p>
+<p>https://datamining10041.wordpress.com/2012/03/25/atribut-nominal-biner-ordinal-dan-numerik/</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

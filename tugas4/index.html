@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Tugas 4 - Penambangan Data</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Penambangan Data</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Home</a>
+                            </li>
+                            <li >
+                                <a href="../tugas1/">Tugas 1</a>
+                            </li>
+                            <li >
+                                <a href="../tugas2/">Tugas 2</a>
+                            </li>
+                            <li >
+                                <a href="../tugas3/">Tugas 3</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Tugas 4</a>
+                            </li>
+                            <li >
+                                <a href="../tugas5/">Tugas 5</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="../tugas3/">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../tugas5/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#tugas-4">Tugas 4</a></li>
+        <li class="main "><a href="#naive-bayes-classifier">Naive Bayes Classifier</a></li>
+            <li><a href="#teorema-naive-bayes">Teorema Naïve Bayes</a></li>
+            <li><a href="#contoh-program">Contoh Program</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="tugas-4">Tugas 4</h1>
+<h1 id="naive-bayes-classifier">Naive Bayes Classifier</h1>
+<p>Naïve Bayes merupakan sebuah pengklasifikasian probabilistik sederhana yang menghitung sekumpulan probabilitas dengan menjumlahkan frekuensi dan kombinasi nilai dari dataset yang diberikan. Algoritma mengunakan teorema Bayes dan mengasumsikan semua atribut independen atau tidak saling ketergantungan yang diberikan oleh nilai pada variabel kelas (<code>Patil and Sherekar 2013</code>).</p>
+<p>Definisi lain mengatakan Naïve Bayes merupakan pengklasifikasian dengan metode probabilitas dan statistik yang dikemukan oleh ilmuwan Inggris Thomas Bayes, yaitu memprediksi peluang di masa depan berdasarkan pengalaman di masa sebelumnya (<code>Bustami 2013</code>).</p>
+<p>Naïve Bayes didasarkan pada asumsi penyederhanaan bahwa nilai atribut secara kondisional saling bebas jika diberikan nilai output. Dengan kata lain, diberikan nilai output, probabilitas mengamati secara bersama adalah produk dari probabilitas individu (<code>Ridwan 2013</code>). Keuntungan penggunaan Naive Bayes adalah bahwa metode ini hanya membutuhkan jumlah data pelatihan (Training Data) yang kecil untuk menentukan estimasi paremeter yang diperlukan dalam proses pengklasifikasian. Naive Bayes sering bekerja jauh lebih baik dalam kebanyakan situasi dunia nyata yang kompleks dari pada yang diharapkan (<code>Pattekari and Parveen 2012</code>)</p>
+<p>Naive Bayes Classifier dinilai bekerja sangat baik dibanding dengan model classifier lainnya, yaitu Naïve Bayes Classifier memiliki tingkat akurasi yg lebih baik dibanding model classifier lainnya(<code>Xhemali 2009</code>).</p>
+<h2 id="teorema-naive-bayes">Teorema Naïve Bayes</h2>
+<p>Sebelum menjelaskan <strong>Naïve Bayes Classifier</strong> ini, akan dijelaskan terlebih dahulu <strong>Teorema Bayes</strong> yang menjadi dasar dari metoda tersebut. Pada <strong>Teorema Bayes</strong>, bila terdapat dua kejadian yang terpisah (misalkan <code>X</code> dan <code>H</code>), maka <strong>Teorema Bayes</strong> dirumuskan sebagai berikut (<code>Bustami 2013</code>).:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-01]</p>
+<p><strong>Keterangan</strong></p>
+<p><strong>Teorema Bayes</strong> sering pula dikembangkan mengingat berlakunya hukum probabilitas total, menjadi seperti berikut:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-02]</p>
+<p><strong>Keterangan</strong></p>
+<p>Untuk menjelaskan <strong>Teorema Naïve Bayes</strong>, perlu diketahui bahwa proses klasifikasi memerlukan sejumlah petunjuk untuk menentukan kelas apa yang cocok bagi <em>sampel</em> yang dianalisis tersebut. Karena itu, <strong>Teorema Bayes</strong> di atas disesuaikan sebagai berikut:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-03]</p>
+<p>Di mana Variabel <code>C</code> merepresentasikan kelas, sementara variabel <code>F1 ... Fn</code> merepresentasikan karakteristik petunjuk yang dibutuhkan untuk melakukan klasifikasi. Maka rumus tersebut menjelaskan bahwa peluang masuknya sampel karakteristik tertentu dalam kelas <code>C</code> (<em>Posterior</em>) adalah peluang munculnya kelas <code>C</code> (sebelum masuknya <em>sampel</em> tersebut, seringkali disebut <em>prior</em>), dikali dengan peluang kemunculan karakteristik-karakteristik <em>sampel</em> pada kelas <code>C</code> (disebut juga <em>likelihood</em>), dibagi dengan peluang kemunculan karakteristik-karakteristik <em>sampel</em> secara global (disebut juga <em>evidence</em>). Karena itu, rumus di atas dapat pula ditulis secara sederhana sebagai berikut:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-04]</p>
+<p>Nilai <em>Evidence</em> selalu tetap untuk setiap kelas pada satu <em>sampel</em>. Nilai dari <em>posterior</em> tersebut nantinya akan dibandingkan dengan nilai-nilai posterior kelas lainnya untuk menentukan ke kelas apa suatu <em>sampel</em> akan diklasifikasikan. Penjabaran lebih lanjut rumus Bayes tersebut dilakukan dengan menjabarkan <code>(C,F1, ... , Fn)</code> menggunakan aturan perkalian sebagai berikut:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-05]</p>
+<p>Dapat dilihat bahwa hasil penjabaran tersebut menyebabkan semakin banyak dan semakin kompleksnya faktor - faktor syarat yang mempengaruhi nilai probabilitas, yang hampir mustahil untuk dianalisa satu persatu. Akibatnya, perhitungan tersebut menjadi sulit untuk dilakukan. Disinilah digunakan asumsi independensi yang sangat tinggi (<em>naif</em>), bahwa masing-masing petunjuk (<code>F1,F2 , ..., Fn</code>) saling bebas (<em>independen</em>) satu sama lain. Dengan asumsi tersebut, maka berlaku suatu kesamaan sebagai berikut:</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-06]</p>
+<p>Untuk <code>i≠j</code>, sehingga</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-07]</p>
+<p>Atau dapat dituliskan dalam notasi</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-08]</p>
+<p>yang dapat dijabarkan sebagai berikut</p>
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>.. [NBC-09]</p>
+<p>Persamaan di atas merupakan model dari teorema Naïve Bayes yang selanjutnya akan digunakan dalam proses klasifikasi. Untuk klasifikasi dengan data kontinyu digunakan rumus <strong>Densitas Gauss</strong> :</p>
+<p><img alt="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATcAAABICAIAAAAcQyXFAAANJ0lEQVR42u2d20tUXxTHz/wBZlZPXSRyfIiKovQXhAUJajeiULuQhJBUaggWVDb1ENVoYi9hWqIQQRfTMKIkDRK6iJcMfRCDSkJ8zCz7A/p9mYW73bnNacZzmc76PMjxOHPOdmZ/91pr77XXCfz69UthGMbDBFilDONxWKUM43VYpQzjFcbHxwcGBiYmJlJTU3NychYuXEjnWaWM75iamurv79+xY4fX2rBt2zb8zM7OrqmpOXDgQENDA51nlTL+4sGDB48fPw6HwytWrHC9Jbdv3757966wmThDJjQUCiUnJ58+fZrOs0oZH/HmzZvKysrBwUG3G2LWns7Ozrdv3165ckWcYZUyPgIuZUVFhexn3rp1C1YL7qUS0Uxvb6+wYNZBPNne3l5QUAD7DFe2paWFjq28F7fes2cPNQDU1tbiJ9qAxmRlZdFJVinjF0ZGRrZu3frt2zdxBo7l9PR0Y2Pj8PDwz58/6+vru7u75RdYBNZv586dJCX52ArkgeOnEhkympubCwsLcfzy5cvnz5/Ta1iljF+gOFB0fSViA2HxYGA3bNgAuTY0NAgLhoPJyUkycXjjxMSE9oLC6kLtQ0NDdGUYQ1lg8nVEM5YuXSrsJF6wefNmkiFU+uPHDzqfmpoq3sUqZfyCSj/y+aampv7+fjGLo0TEMzMzQ75xVJVC59nZ2fRrZmZmbm6uiCrl6xCQYk5OjvCHZZUawSpl/IKRSmGyVI4uydJ6bBkIBJ49ewYpwjinpaXRse51RNgp3ssqZZjfqDxeyGPx4sXt7e2rV69GJPn58+fk5GSch0WFuTt+/DjOWFEpwt1169bRi8vKyhDl0qV0r0MrovJIwSplmN+QnESHh6JgP2H64J3CTcXB9+/fafUSJhFe66dPn6xclqRYWlqKd+3du5eOU1JScFntdWBLEXnKqyzaaFkLq5TxEVDjxYsXhTuqRNxdJSLgrq4u4ZrK865RgdqhSRjPTZs2ZWVlyUs72utol4Jwpri4WJ5e0sIqZXwEZRHAcMkTRVogvOXLl1tcOA0GgzCGYs7W/DqIYGUH2GKWBauUcQKR++Z2QyxlCFL0OH/+/KjmdGpqatGiRa9fv9ZVqeo60OTu3bvFNJU2Q9AIViljL+iL58+fhwHxTk+Lmm0PB7ivrw8OcFT9mGcaqa4TCoXwOZBi/yrjn1XK2AX6aHV1dVpaWnd397t37/zc08bHxyHmxsbGJ0+e6Fpdc1iljF1ApUlJSTAytbW1Z86c8XNPo0TfvLy8tWvXxvB2ViljO6zSOGGVMrbjBZUGAgG3P4ZYoA+NVcrYjhdUmtCwShnb8ZtKOzs7nz59Shtujh07FlssKsMqZWzHbyqlrXDbt2+vrKxMS0uzmMNkAquUsR2/qXRkZITsZ1lZ2a5du+Ivg8YqZWwnoVUK9/XOnTutra04Li0tFXX9ohIKhdasWWOeoGuRuFRKiRe6e/YSAu02Ii+DEbqkpEQkiycQpFKLG8G8xoIFCygVAY7rwYMH79+/H1V40EV5efmJEyco+R6haZxtiF2lCI7379+fmZl56dIlL+RnxkBiqVSJCDU/Pz83N9f6iO4i6KxjY2Ojo6NVVVXT09PoLYcPH16yZEn8syluEQgEbt68KVRHGUWUWUVnyNjCisL2BoNBOhl/B4tRpfgC0MUh0YToLkYknEqV2RJb1dXV8Y/QdkMJN6qTcjmfxIJy5SFI8gjgCRcVFZ09e7agoKCurm7Lli3i/8IrxbuSkpJcm+OFD1NTU/Px48cEtaJEIqpUiWw7hnUS3YVxADJLp06dIini1/T0dEiUdqUZ1WqZK9QqpZ048pmUlBS0THZrVU2UofEG7g2OaTsP7WSnv3pt/kClUgqf6Pjr16/0/+I1XV1dOMjLy/OOnhEsyU8oYGxFJVFltpyn6CRyDUFFUyVQiXQt61WUtOjYUmrB1atXSYQkMwQVYtmHwmijyQDq6+fOnRNlI+AY48Wx7QawFZVK8WUcOnQImhTVpZTZYSsjIyPq1mEnKSsrw7cQQ+VY5m/RSlTRGE+EoPJkAb6alStXCkeXJlljKMYtMFSpvLEVMpN3HqG5+NWoKgyVURMip2Izcr/3DlqPlwYgubU4A0l4zb3UfkeMTVDBFDI5ovg9+Yw9PT2wmRcuXEAnET1EVSWQgvM4o3EdlWpXt8gYipEb7tZ///1n4v6J3q87DnkHrUrJcgpHgHx7D3oBqqGQsQmyMfIZ8ZnDy21sbERwh1AIJ4XlVNkwKlB29OjRObalqr5LlQjFeq6V/iFcYnR3SNqx8AkWpqKiAqMJ6YqWrVpbW42cc93ZIwxJ+EmlaPCJr1+/3iYlCAdbXiuH74TWWomBA4GAHIYwAvTY+vp6ykNw/iPC7V69eiX3eW1Fsr9FR6X4+kmE6EYvXryAxYfSROVvEq25SskiQczoc47NuOCm8D3w6eCmCCPJUzXPz9JVqViCx//e0dFhX/sxGO/bt+/hw4fhcFiMIzR4y4tyRkT1aPwJrT7QShVNqTgcF6DXwa7KXx8EJeaZYkOtUhKh+BVKw2h08uRJcQ8rKlVmQ9kYGhd1H2DUW5MrArlOTEyYv1JXpfQPwgvAYKx6KoEdDabbiYwWCnisLHGZLyOJqWkjPDVlPVfQhymmFSh6Hx4edjKPQlVSEE0qLi62WNrXCLVKo1b1tqJSyr3ARVyZ3qDvxoqrY9TRYaYQbzjWeOG8KLPP87HiY9u02Jtwu6VVEygY3fCZwCUZGxuDWXN+vYoiEREowba/f/8+Tq9brVLz+VvFgkrRoGvXruGTSk9P135G5AxbSYaMGXIatbfQ3tpEpYj4HYtnRN+iY9WSDwX22o8rQVMy7INmTOgYB4h65OeCOgaMxMzMjLgvvtCSkpI4E8XUKo3aQc1VSvlrPT098DFiW9OL3+Ol+5aWlsp1/nXR7ejWI8O5ajC+Ufgdg4ODaDYMqcX7BiOwxytQubuug/bcu3cP32n8KXp/qJQ6qHmvMpnjpXULMfCT5ynbLpqYsbV/0FOuvnz5MhhBnNe9ta5KnZ9yoLYhhi8vL5fHRzoPm6Bb+5zneFVoVYqvctmyZW6JFu0ZHR2VH4IYM3+oFPFkOByW04Z00Z1dpKVRZXYNQ5n1MFXCgANQWFho09oGFYBFxyWlDQ8P9/X1rVq1ivSmvbXueunGjRth2ZyccqDuBclVVVWpbooW4jvWRla8XqqFjAQ8wRs3buDXlpaWtrY2T2WMxcxvlcpZrOb+njZ2JYniZEpKikjCwMtozUq+Gpy069evz/nwJkYEqudPYoOzLScba2+tVSlNTdOxY1nH1HhdyRlFNe7mHtHsmvP31UXlDObn52OQRT/EV3/kyJF/QKJKbHtizPN4TSALEOfaUWzo3tojEzC0U1fr1po8g8TFPF7ajB71AUTMHBKLSk32xJhDjwyJc+0oNnRv7QWVUgYSfFrtkEcGU/cLcnFPjPYJnIzdOLq/lHYSwLVDuOjwJmbdW7uoUthP2EPIDD/lLFBtm7XNc3d/KT40jHdk3jHEtLe3d3R00HxyRkZGIhZ88T6O1mog4yCiRyf/T91bu6hSihpUidoqqGCkymq5W6uBnHDRZ2i9h6bxKa3crVSWfxuue+R+XKqLbvqH63WPqKCeWP5RjSM09PDM85zDNQQ9qlJtTOGFGoKhUCg1NdXIjFvM8Wb+Fq7H6zmoryPGa25u9lq5vWAw+OjRI6NWqWph0vI1rcZpkcVMxfiGhobkfCmjdA4fwiplrEKRp8kUPXyTTxHoV2g1HA5/+PChqKiIFo1IxqouR3sMceWqqir8iqg70avezTmsUsYq2v3NMjTzTCnc8nl5plpkLIu/0mSYvKqnqnnLKKxSxjrQmNEuE9UuWRkY2OzsbBKhdplXm8cGlf7Vgx78AKuUsQo0puuLkj3U3V6nRFRHazO6OwrlvbWKpu6UMruEpkp0wxWcrNTjOqxSxhJGiYHmK+dkYykxk4JSeRsD/VVeX7X+LBZfwSpldID2Jicn5QjTKDFQFWpSTpVY3KKqHeTQamtTUnK1vNcMgh8YGBAWm7ImZGMrKv64kg3uFqxS5g+gnLq6Otg01eZEOTFQQJqR3VG5yjvle4tAlPZIQV1URI5eDyMModJeM5xvbGyUDanufgOovampyZVscLdglTJ/gDhw3rx5vb29sHtCHqrEQIFuRQixN522KwvV0eOPEE/KxbvkNVW8kZ4mKC6lu5MJl8W44Kvt76xSRgeSh9jBr0oMdAyqoaUKhm0tJOBNWKWMPggv4X+SN2ueGGhrG/BTnpcy2XP7D8MqZfQhc0pLl8FgsLu72/mNcrTWigFCPMKMImG/dVpWKWMImVMYrvjrPseGthBXbW1tW1ub3/J7WaWMIWROMzIyvPPQ98wIHmmMY7BKGTNoFtcjRW61WRA+gVXKmCEnD7nbkkAgAMN++fJlH6YlsUoZxuuwShnG67BKGcbrsEoZxuuwShnG67BKGcbr/A/5dxAWpaK1rQAAAABJRU5ErkJggg==" /></p>
+<p>.. [NBC-10]</p>
+<p><strong>Keterangan</strong></p>
+<p><strong>P</strong> : Peluang</p>
+<p><strong>Xi</strong> : Atribut ke-i</p>
+<p><strong>xi</strong> : Nilai Atribut ke-i</p>
+<p><strong>Y</strong> : Kelas yang dicari</p>
+<p><strong>yi</strong> : Sub-kelas yang dicari</p>
+<p><strong>μ</strong> : <em>mean</em>, menyatakan rata-rata dari seluruh atribut</p>
+<p><strong>σ</strong> : Deviasi Standar, menyatakan varian dari seluruh atribut</p>
+<h2 id="contoh-program">Contoh Program</h2>
+<p>Naive bayes pada suatu data</p>
+<pre><code class="python">import pandas as pd
+
+df=pd.read_csv(&quot;data iris bunga tugas.csv&quot;)
+df
+</code></pre>
+
+<p>Output :</p>
+<table>
+<thead>
+<tr>
+<th align="right">sepallength</th>
+<th align="right">sepalwidth</th>
+<th align="right">petallength</th>
+<th align="right">petalwidth</th>
+<th align="right">class</th>
+<th align="right">Class Prediksi</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">7</td>
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">8</td>
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">9</td>
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="right">Iris-setosa</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">10</td>
+<td align="right">7.0</td>
+<td align="right">3.2</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">11</td>
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">12</td>
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">13</td>
+<td align="right">5.5</td>
+<td align="right">2.3</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">14</td>
+<td align="right">6.5</td>
+<td align="right">2.8</td>
+<td align="right">4.6</td>
+<td align="right">1.5</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">15</td>
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.5</td>
+<td align="right">1.3</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">16</td>
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">4.7</td>
+<td align="right">1.6</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">17</td>
+<td align="right">4.9</td>
+<td align="right">2.4</td>
+<td align="right">3.3</td>
+<td align="right">1.0</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">18</td>
+<td align="right">6.6</td>
+<td align="right">2.9</td>
+<td align="right">4.6</td>
+<td align="right">1.3</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">19</td>
+<td align="right">5.2</td>
+<td align="right">2.7</td>
+<td align="right">3.9</td>
+<td align="right">1.4</td>
+<td align="right">Iris-versicolor</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">20</td>
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">6.0</td>
+<td align="right">2.5</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">21</td>
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">22</td>
+<td align="right">7.1</td>
+<td align="right">3.0</td>
+<td align="right">5.9</td>
+<td align="right">2.1</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">23</td>
+<td align="right">6.3</td>
+<td align="right">2.9</td>
+<td align="right">5.6</td>
+<td align="right">1.8</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">24</td>
+<td align="right">6.5</td>
+<td align="right">3.0</td>
+<td align="right">5.8</td>
+<td align="right">2.2</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">25</td>
+<td align="right">7.6</td>
+<td align="right">3.0</td>
+<td align="right">6.6</td>
+<td align="right">2.1</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">26</td>
+<td align="right">4.9</td>
+<td align="right">2.5</td>
+<td align="right">4.5</td>
+<td align="right">1.7</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">27</td>
+<td align="right">7.3</td>
+<td align="right">2.9</td>
+<td align="right">6.3</td>
+<td align="right">1.8</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">28</td>
+<td align="right">6.7</td>
+<td align="right">2.5</td>
+<td align="right">5.8</td>
+<td align="right">1.8</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+<tr>
+<td align="right">29</td>
+<td align="right">7.2</td>
+<td align="right">3.6</td>
+<td align="right">6.1</td>
+<td align="right">2.5</td>
+<td align="right">Iris-virginica</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<p>Identifikasi grup class</p>
+<pre><code class="py">dataset_classes = {}
+# table per classes
+for key,group in dataset.groupby('class'):
+    mu_s = [group[c].mean() for c in group.columns[:-1]]
+    sigma_s = [group[c].std() for c in group.columns[:-1]]
+    dataset_classes[key] = [group, mu_s, sigma_s]
+    print(key, &quot;===&gt;&quot;)
+    print('Mu_s =&gt;', array(mu_s))
+    print('Sigma_s =&gt;', array(sigma_s))
+    table(group)
+</code></pre>
+
+<pre><code class="py">setosa ===&gt;
+Mu_s =&gt; [5.18333333 3.56666667 1.51666667 0.31666667]
+Sigma_s =&gt; [0.3250641  0.22509257 0.14719601 0.1602082 ]
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="right">sepal length (cm)</th>
+<th align="right">sepal width (cm)</th>
+<th align="right">petal length (cm)</th>
+<th align="right">petal width (cm)</th>
+<th align="left">class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">5</td>
+<td align="right">3.5</td>
+<td align="right">1.6</td>
+<td align="right">0.6</td>
+<td align="left">setosa</td>
+</tr>
+<tr>
+<td align="right">5.2</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr>
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr>
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr>
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="py">versicolor ===&gt;
+Mu_s =&gt; [5.89166667 2.76666667 4.13333333 1.26666667]
+Sigma_s =&gt; [0.52476546 0.33393884 0.46188022 0.21461735]
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="right">sepal length (cm)</th>
+<th align="right">sepal width (cm)</th>
+<th align="right">petal length (cm)</th>
+<th align="right">petal width (cm)</th>
+<th align="left">class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">5.7</td>
+<td align="right">2.8</td>
+<td align="right">4.1</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5.5</td>
+<td align="right">2.6</td>
+<td align="right">4.4</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5.5</td>
+<td align="right">2.4</td>
+<td align="right">3.7</td>
+<td align="right">1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">3.4</td>
+<td align="right">4.5</td>
+<td align="right">1.6</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5.7</td>
+<td align="right">2.6</td>
+<td align="right">3.5</td>
+<td align="right">1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">6</td>
+<td align="right">2.9</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5.6</td>
+<td align="right">2.5</td>
+<td align="right">3.9</td>
+<td align="right">1.1</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">6.8</td>
+<td align="right">2.8</td>
+<td align="right">4.8</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">4.4</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5.8</td>
+<td align="right">2.6</td>
+<td align="right">4</td>
+<td align="right">1.2</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr>
+<td align="right">5</td>
+<td align="right">2.3</td>
+<td align="right">3.3</td>
+<td align="right">1</td>
+<td align="left">versicolor</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="py">virginica ===&gt;
+Mu_s =&gt; [6.61666667 3.13333333 5.58333333 2.06666667]
+Sigma_s =&gt; [0.7790826  0.34465617 0.59670814 0.23868326]
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="right">sepal length (cm)</th>
+<th align="right">sepal width (cm)</th>
+<th align="right">petal length (cm)</th>
+<th align="right">petal width (cm)</th>
+<th align="left">class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">6.3</td>
+<td align="right">3.3</td>
+<td align="right">6</td>
+<td align="right">2.5</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">6.4</td>
+<td align="right">3.1</td>
+<td align="right">5.5</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">5.8</td>
+<td align="right">2.7</td>
+<td align="right">5.1</td>
+<td align="right">1.9</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">6.7</td>
+<td align="right">3.1</td>
+<td align="right">5.6</td>
+<td align="right">2.4</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">6.5</td>
+<td align="right">3</td>
+<td align="right">5.2</td>
+<td align="right">2</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">5.6</td>
+<td align="right">2.8</td>
+<td align="right">4.9</td>
+<td align="right">2</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">5.9</td>
+<td align="right">3</td>
+<td align="right">5.1</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">7.7</td>
+<td align="right">3</td>
+<td align="right">6.1</td>
+<td align="right">2.3</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">6.8</td>
+<td align="right">3</td>
+<td align="right">5.5</td>
+<td align="right">2.1</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">7.7</td>
+<td align="right">3.8</td>
+<td align="right">6.7</td>
+<td align="right">2.2</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">6.1</td>
+<td align="right">3</td>
+<td align="right">4.9</td>
+<td align="right">1.8</td>
+<td align="left">virginica</td>
+</tr>
+<tr>
+<td align="right">7.9</td>
+<td align="right">3.8</td>
+<td align="right">6.4</td>
+<td align="right">2</td>
+<td align="left">virginica</td>
+</tr>
+</tbody>
+</table>
+<p>Probabilitas Prior dan Likehood</p>
+<pre><code class="py">def numericalPriorProbability(v, mu, sigma):
+    return (1.0/sqrt(2 * pi * (sigma ** 2))*exp(-((v-mu)**2)/(2*(sigma**2))))
+
+def categoricalProbability(sample,universe):
+    return sample.shape[0]/universe.shape[0]
+
+Ps = ([[y]+[numericalPriorProbability(x, d[1][i], d[2][i]) for i,x in enumerate(test)]+
+          [categoricalProbability(d[0],dataset)] for y,d in dataset_classes.items()])
+
+table(DataFrame(Ps, columns=[&quot;classes&quot;]+[&quot;P( %d | C )&quot; % d for d in test]+[&quot;P( C )&quot;]))
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">classes</th>
+<th align="right">P( 3 | C )</th>
+<th align="right">P( 5 | C )</th>
+<th align="right">P( 2 | C )</th>
+<th align="right">P( 4 | C )</th>
+<th align="right">P( C )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">setosa</td>
+<td align="right">1.96232e-10</td>
+<td align="right">2.77721e-09</td>
+<td align="right">0.0123515</td>
+<td align="right">4.13093e-115</td>
+<td align="right">0.2</td>
+</tr>
+<tr>
+<td align="left">versicolor</td>
+<td align="right">1.93812e-07</td>
+<td align="right">2.31644e-10</td>
+<td align="right">2.01329e-05</td>
+<td align="right">1.11579e-35</td>
+<td align="right">0.4</td>
+</tr>
+<tr>
+<td align="left">virginica</td>
+<td align="right">1.07096e-05</td>
+<td align="right">4.94165e-07</td>
+<td align="right">9.87125e-09</td>
+<td align="right">9.46396e-15</td>
+<td align="right">0.4</td>
+</tr>
+</tbody>
+</table>
+<p>Urutkan dengan perankingan</p>
+<pre><code class="py">Pss = ([[r[0], prod(r[1:])] for r in Ps])
+PDss = DataFrame(Pss, columns=['class', 'probability']).sort_values('probability')[::-1]
+table(PDss)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th align="left">class</th>
+<th align="right">probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">virginica</td>
+<td align="right">1.97766e-34</td>
+</tr>
+<tr>
+<td align="left">versicolor</td>
+<td align="right">4.03412e-57</td>
+</tr>
+<tr>
+<td align="left">setosa</td>
+<td align="right">5.56132e-136</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="py">print(&quot;Prediksi Bayes untuk&quot;, test, &quot;adalah&quot;, PDss.values[0,0])
+</code></pre>
+
+<pre><code class="py">Prediksi Bayes untuk [3, 5, 2, 4] adalah virginica
+</code></pre></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

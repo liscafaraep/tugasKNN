@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Tugas 1 - Penambangan Data</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="..">Penambangan Data</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="..">Home</a>
+                            </li>
+                            <li class="active">
+                                <a href="./">Tugas 1</a>
+                            </li>
+                            <li >
+                                <a href="../tugas2/">Tugas 2</a>
+                            </li>
+                            <li >
+                                <a href="../tugas3/">Tugas 3</a>
+                            </li>
+                            <li >
+                                <a href="../tugas4/">Tugas 4</a>
+                            </li>
+                            <li >
+                                <a href="../tugas5/">Tugas 5</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="..">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="../tugas2/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#tugas-1">TUGAS 1</a></li>
+            <li><a href="#statistika-deskriptif">Statistika Deskriptif</a></li>
+            <li><a href="#contoh-program">Contoh Program</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="tugas-1">TUGAS 1</h1>
+<h2 id="statistika-deskriptif">Statistika Deskriptif</h2>
+<p><strong>Mean</strong></p>
+<p>Mean adalah <em>nilai rata-rata</em> dari beberapa buah data. Nilai mean dapat ditentukan dengan membagi jumlah data dengan banyaknya data.</p>
+<p>Mean (rata-rata) merupakan suatu ukuran pemusatan data. Mean suatu data juga merupakan statistik karena mampu menggambarkan bahwa data tersebut berada pada kisaran mean data tersebut. Mean tidak dapat digunakan sebagai ukuran pemusatan untuk jenis data nominal dan ordinal.</p>
+<p>Berdasarkan definisi dari mean adalah jumlah seluruh data dibagi dengan banyaknya data. Dengan kata lain jika kita memiliki N data sebagai berikut maka mean data tersebut dapat kita tuliskan sebagai berikut :</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/11-2/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/111.gif" /></a></p>
+<p>Dimana:
+x = data ke n
+x bar = x rata-rata = nilai rata-rata sampel
+n = banyaknya data</p>
+<p>Bisa juga Menghitung mean</p>
+<p><em>a) Rumus Mean Hitung dari Data Tunggal</em></p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/351/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/351.jpg" /></a></p>
+<p>b) Rumus Mean Hitung Untuk Data yang Disajikan Dalam Distribusi Frekuensi*</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/36/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/36.jpg" /></a></p>
+<p>Dengan : </p>
+<p>fixi = frekuensi untuk nilai xi yang bersesuaian
+xi = data ke-i</p>
+<p>c) Rumus Mean Hitung Gabungan</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/37/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/37.jpg" /></a></p>
+<p><strong>Median</strong></p>
+<p>Median menentukan letak tengah data setelah data disusun menurut urutan  nilainya. Bisa juga <em>nilai tengah dari data-data yang terurut<strong>.</strong></em> Simbol untuk median adalah Me.  Dengan median Me, maka 50% dari banyak data nilainya paling tinggi sama dengan Me, dan 50% dari banyak data nilainya paling rendah sama dengan Me. Dalam  mencari median, dibedakan  untuk banyak data ganjil  dan banyak data genap.  Untuk  banyak data ganjil, setelah data disusun menurut nilainya, maka median Me adalah data yang terletak tepat di tengah. Median bisa dihitung menggunakan rumus sebagai berikut:</p>
+<p>variansi merupakan salah satu ukuran sebaran yang paling sering digunakan dalam berbagai analisis statistika. Standar deviasi merupakan akar kuadrat positif dari variansi. Secara umum, variansi dirumuskun sabagai :</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/8/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/8.jpg" /></a></p>
+<p><em>Contoh:</em></p>
+<p>Dari lima kali kuiz statistika, seorang mahasiswa memperoleh nilai 82, 93, 86, 92, dan 79. Tentukan median populasi ini.</p>
+<p><em>jawab:</em> <em>Setelah data disusun dari yang terkecil sampai terbesar, diperoleh  79 82 86 92 93</em></p>
+<p><em>Oleh karena itu medianya adalah 86</em></p>
+<p>Kada nikotin yang berasal dari sebuah contoh acak enam batang rokok cap tertentu adalah 2.3, 2.7, 2.5, 2.9, 3.1, dan 1.9 miligram. Tentukan mediannya.</p>
+<p><em>jawab: Bila kadar nikotin itu diurutkan dari yang terkecil sampai terbesar, maka diperoleh 1.9 2.3 2.5 2.7 2.9 3.1</em></p>
+<p><em>Maka mediannya adalah rata-rata dari 2.5 dan 2.7, yaitu</em></p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/91/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/91-300x74.png" /></a></p>
+<p>Selain itu juga dapat dicari median dari data yang telah tersusun dalam bentuk <a href="http://materi-statistik.blogspot.com/2011/03/distribusi-frekuensi.html">distribusi frekuensi</a>. Rumus yang digunakan ada dua, yaitu</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/10/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/10-300x74.png" /></a></p>
+<p>Dimana :
+Bak = batas kelas atas median
+c =  lebar kelas
+s’ = selisih antara nomor frekuensi median dengan frekuensi kumulatif sampai kelas median
+fM = frekuensi kelas median</p>
+<p>Sebelum menggunakan kedua rumus di atas, terlebih dahulu harus ditentukan kelas yang menjadi kelas <a href="http://materi-statistik.blogspot.com/2011/12/median.html">median</a>. Kelas median adalah kelas yang memuat nomor frekuensi median, dan nomor frekuensi median ini ditentukan dengan membagi keseluruhan data dengan dua.</p>
+<p><strong>Modus</strong></p>
+<p>Modus adalah nilai yang sering muncul. Jika kita tertarik pada data frekuensi, jumlah dari suatu nilai dari kumpulan data, maka kita menggunakan modus. Modus sangat baik bila digunakan untuk data yang memiliki sekala kategorik yaitu nominal atau ordinal.
+Sedangkan data ordinal adalah data kategorik yang bisa diurutkan, misalnya kita menanyakan kepada 100 orang tentang kebiasaan untuk mencuci kaki sebelum tidur, dengan pilihan jawaban: selalu (5), sering (4), kadang-kadang(3), jarang (2), tidak pernah (1). Apabila kita ingin melihat ukuran pemusatannya lebih baik menggunakan modus yaitu yaitu jawaban yang paling banyak dipilih, misalnya sering (2). Berarti sebagian besar orang dari 100 orang yang ditanyakan menjawab sering mencuci kaki sebelum tidur. Inilah cara menghitung modus:</p>
+<ol>
+<li><em>Data yang belum dikelompokkan</em>
+   Modus dari data yang belum dikelompokkan adalah ukuran yang memiliki frekuensi tertinggi. Modus dilambangkan mo.</li>
+<li><em>Data yang telah dikelompokkan</em>
+   Rumus Modus dari data yang telah dikelompokkan dihitung dengan rumus:</li>
+</ol>
+<p><strong><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/141.jpg" /></strong></p>
+<p>Dengan : </p>
+<p>Mo = Modus
+L = Tepi bawah kelas yang memiliki frekuensi tertinggi (kelas modus) i = Interval kelas
+b1 = Frekuensi kelas modus dikurangi frekuensi kelas interval terdekat sebelumnya
+b2 = frekuensi kelas modus dikurangi frekuensi kelas interval terdekat sesudahnya</p>
+<p><em>Contoh:</em></p>
+<p>Sumbangan dari warga Bogor pada hari Palang Merah Nasional tercatat sebagai berikut: Rp 9.000, Rp 10.000, Rp 5.000, Rp 9.000, Rp 9.000, Rp 7.000, Rp 8.000, Rp 6.000, Rp 10.000, Rp 11.000. Maka modusnya, yaitu nilai yang terjadi dengan frekuensi paling tinggi, adalah Rp 9.000.</p>
+<p>Dari dua belas pelajar sekolah lanjutan tingkat atas yang diambil secara acak dicatat berapa kali mereka menonton film selama sebulan lalu. Data yang diperoleh adalah 2, 0, 3, 1, 2, 4, 2, 5, 4, 0, 1 dan 4. Dalam kasus ini terdapat dua modu, yaitu 2 dan 4, karena 2 dan 4 terdapat dengan frekuensi tertinggi. Distribusi demikian dikatakan bimodus.</p>
+<p><strong>Standar defiasi</strong></p>
+<p>Standar Deviasi dan Varians Salah satu teknik statistik yg digunakan untuk menjelaskan homogenitas kelompok. Varians merupakan jumlah kuadrat semua deviasi nilai-nilai individual thd rata-rata kelompok. Sedangkan akar dari varians disebut dengan standar deviasi atau simpangan baku.</p>
+<p>Standar Deviasi dan Varians Simpangan baku merupakan variasi sebaran data. Semakin kecil nilai sebarannya berarti variasi nilai data makin sama Jika sebarannya bernilai 0, maka nilai semua datanya adalah sama. Semakin besar nilai sebarannya berarti data semakin bervariasi.</p>
+<p>Cara penulisan rumus fungsi standar deviasi
+STDEV (number1, number2,…)</p>
+<p>Dengan :
+Number1, number2, … adalah 1-255 argumen yang sesuai dengan sampel populasi. Anda juga dapat menggunakan array tunggal atau referensi ke array, bukan argumen yang dipisahkan oleh koma.</p>
+<p>Keterangan
+a. STDEV mengasumsikan bahwa argumen adalah contoh dari populasi. Jika data anda mewakili seluruh populasi, untuk menghitung deviasi standar menggunakan STDEVP.
+b. Standar deviasi dihitung menggunakan metode “n-1″ .
+c. Argumen dapat berupa nomor atau nama, array, atau referensi yang mengandung angka.
+d. Nilai-nilai logis dan representasi teks dari nomor yang Anda ketik langsung ke daftar argumen akan dihitung.
+e. Jika argumen adalah sebuah array atau referensi, hanya nomor/angka dalam array atau referensi yang akan dihitung. Sel kosong, nilai-nilai logis, teks, atau nilai-nilai kesalahan dalam array atau referensi akan diabaikan.
+f. Argumen yang kesalahan nilai atau teks yang tidak dapat diterjemahkan ke dalam nomor/angka akan menyebabkan kesalahan. g. Jika Anda ingin memasukkan nilai-nilai logis dan representasi teks angka dalam referensi sebagai bagian dari perhitungan, gunakan fungsi STDEVA.</p>
+<p>Dalam penerapannya STDEV , perhitungan standar deviasi secara manual menggunakan rumus berikut:</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/15/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/15.jpg" /></a></p>
+<p>Dimana:
+x = data ke n
+x bar = x rata-rata = nilai rata-rata sampel
+n = banyaknya data</p>
+<p>variansi merupakan salah satu ukuran sebaran yang paling sering digunakan dalam berbagai analisis statistika. Standar deviasi merupakan akar kuadrat positif dari variansi. Secara umum, variansi dirumuskun sabagai :</p>
+<p>Jika kita memiliki n observasi yaitu X1,X2,….Xn, dan diketahui Xbar adalah rata-rata sampel yang dimiliki, maka variansi dapat dihitung sebagai :</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/16/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/16.jpg" /></a></p>
+<p><em>Contoh:</em></p>
+<p>Jika dimiliki data : 210, 340, 525, 450, 275</p>
+<p>maka variansi dan standar deviasinya :</p>
+<p>mean = (210, 340, 525, 450, 275)/5 = 360</p>
+<p>variansi dan standar deviasi berturut-turut :</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/171/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/171.jpg" /></a></p>
+<p>Sedangkan jika data disajikan dalam tabel distribusi frekuensi, variansi sampel dapat dihitung sebagai :</p>
+<p><a href="http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/attachment/18/"><img alt="img" src="http://blog.ub.ac.id/adiarsa/files/2012/03/18.jpg" /></a></p>
+<p><strong>Jangkauan (Range)</strong></p>
+<p>Yang dimaksud jangkauan atau range adalah selisih data terbesar dengan data terkecil dari sekumpulan data. Jangkauan biasanya diberi simbol R. Cara menghitung jangkauan adalah dengan menggunakan rumus menghitung jangkauan dari sejumlah data berikut ini.</p>
+<p><strong>jangkauan = data terbesar – data terkecil</strong></p>
+<p>Misalkan kita akan menghitung jangkauan dari 8 data berikut: 15, 16, 17, 21, 14, 19, 20, 15.
+Berdasarkan data tersebut data terbesar adalah 21, dan data terkecil adalah 14
+Jangkauan = data terbesar – data terkecil = 21 – 14 = 7</p>
+<p><strong>Kuartil</strong>
+Yang dimaksud dengan kuartil adalah data yang membagi posisi sekumpulan data yang telah diurutkan menjadi empat bagian. Dalam satu urutan data terdapat 3 kuartil yaitu kuartil bawah, kuartil tengah, dan kuartil atas. Cara menentukan kuartil adalah sebagai berikut.</p>
+<ul>
+<li>Kuartil bawah adalah data pada posisi 1/4 dari kumpulan data yang telah diurutkan. Kuartil bawah disimbolkan dengan Q1.</li>
+<li>Kuartil tengah adalah data pada posisi 2/4 dari kumpulan data yang telah diurutkan. Kuartil tengah sama dengan median. Kuartil tengah disimbolkan dengan Q2.</li>
+<li>Kuartil atas adalah data pada posisi 3/4 dari kumpulan data yang telah diurutkan. Kuartil atas disimbolkan dengan Q3.</li>
+</ul>
+<p>Posisi ketiga kuartil ditentukan dari rumus berikut.</p>
+<p><strong>Posisi Qi = i(n+1)/4</strong></p>
+<p>i = indeks kuartil yaitu 1, 2, 3 dan n = banyaknya data</p>
+<p>Misalkan kita akan menentukan kuartil bawah, tengah, dan kuartil atas dari 15 data berikut: 11, 24, 12, 15, 12, 18, 22, 25, 26, 27, 17, 22, 24, 19, 12.</p>
+<p>Urutan data dari yang terkecil:
+11, 12, 12, 12, 15, 17, 18, 19, 22, 22, 24, 24, 25, 26, 27
+Posisi ketiga kuartil adalah sebagai berikut
+Posisi Q1 = 1.(15+1)/4 = (16)/4 = 4 (data urutan ke 4)
+Posisi Q2 = 2. (15+1)/4 = 2(16)/4 = 8 (data urutan ke 4)
+Posisi Q3 = 3. (15+1)/4 = 3(16)/4 = 12 (data urutan ke 4)
+Berdasarkan posisi kuartil pada urutan data maka dapat ditentukan ketiga kuartil
+11, 12, 12, <strong>12</strong>, 15, 17, 18, <strong>19</strong>, 22, 22, 24, <strong>24</strong>, 25, 26, 27
+Jadi
+kuartil bawah adalah 12
+Kuartil tengah = median = 19
+Kuartil atas = 24</p>
+<p><strong>Jangkauan Antar Kuartil ( Hamparan)</strong>
+Yang dimaksud jangkauan antar kuartil atau hamparan adalah selisih antara kuartil atas dengan kuartil bawah. Jangkauan antar kuartil diberi simbol H.</p>
+<p><strong>H = Q3 – Q1</strong></p>
+<p><strong>Jangkauan Semi Antar Kuartil (Simpangan Kuartil)</strong>
+Yang dimaksud semi antar kuartil atau simpangan kuartil adalah setengah dari selisih antara kuartil atas dengan kuartil bawah. Jangkauan semi antar kuartil diberi simbol Qd.</p>
+<p><strong>Qd = ½ ( Q3 – Q1)</strong></p>
+<p><strong>Desil</strong>
+Yang dimaksud dengan desil adalah data yang membagi posisi sekumpulan data yang telah diurutkan menjadi sepuluh bagian. Dalam satu urutan data terdapat 9 desil, masing masing disebut D1 sampai D9.</p>
+<p><strong>Persentil</strong>
+Yang dimaksud dengan persentil adalah data yang membagi posisi sekumpulan data yang telah diurutkan menjadi seratus bagian. Dalam satu urutan data terdapat 99 persentil, masing masing disebut P1 sampai P99. Jangkauan persentil dirumuskan sebagai berikut.</p>
+<p><strong>Jangkauan persentil = P90 – P10</strong></p>
+<h2 id="contoh-program">Contoh Program</h2>
+<p>Coba run program di bawah ini menggunakan Jupyter Notebook dan lihat hasilnya!</p>
+<pre><code class="python">import pandas as pd
+
+df = pd.read_csv('daftarnilai.csv')
+df
+</code></pre>
+
+<p>Hasil run program :</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">Matematika</th>
+<th align="center">Fisika</th>
+<th align="center">Kimia</th>
+<th align="center">Biologi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">67</td>
+<td align="center">77</td>
+<td align="center">71</td>
+<td align="center">77</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">72</td>
+<td align="center">83</td>
+<td align="center">70</td>
+<td align="center">79</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">75</td>
+<td align="center">92</td>
+<td align="center">80</td>
+<td align="center">75</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">65</td>
+<td align="center">79</td>
+<td align="center">77</td>
+<td align="center">90</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">66</td>
+<td align="center">72</td>
+<td align="center">67</td>
+<td align="center">92</td>
+</tr>
+<tr>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+<td align="center">...</td>
+</tr>
+<tr>
+<td align="center">95</td>
+<td align="center">73</td>
+<td align="center">89</td>
+<td align="center">70</td>
+<td align="center">87</td>
+</tr>
+<tr>
+<td align="center">96</td>
+<td align="center">85</td>
+<td align="center">83</td>
+<td align="center">85</td>
+<td align="center">93</td>
+</tr>
+<tr>
+<td align="center">97</td>
+<td align="center">71</td>
+<td align="center">86</td>
+<td align="center">84</td>
+<td align="center">84</td>
+</tr>
+<tr>
+<td align="center">98</td>
+<td align="center">77</td>
+<td align="center">78</td>
+<td align="center">77</td>
+<td align="center">78</td>
+</tr>
+<tr>
+<td align="center">99</td>
+<td align="center">81</td>
+<td align="center">82</td>
+<td align="center">83</td>
+<td align="center">84</td>
+</tr>
+</tbody>
+</table>
+<p>100 rows × 4 columns</p>
+<p>Contoh program menentukan mean, nilai maks, nilai min, kuartil, standar deviasi dan lain-lain pada banyak data.</p>
+<pre><code class="py">from IPython.display import HTML, display
+import tabulate
+table=[
+        [&quot;method&quot;]+[x for x in df.columns],
+        [&quot;describe()&quot;]+['&lt;pre&gt;'+str(df[col].describe())+'&lt;/pre&gt;' for col in df.columns],
+        [&quot;count()&quot;]+[df[col].count() for col in df.columns],
+        [&quot;mean()&quot;]+[df[col].mean() for col in df.columns],
+        [&quot;std()&quot;]+[&quot;{:.2f}&quot;.format(df[col].std()) for col in df.columns],
+        [&quot;min()&quot;]+[df[col].min() for col in df.columns],
+        [&quot;max()&quot;]+[df[col].max() for col in df.columns],
+        [&quot;q1()&quot;]+[df[col].quantile(0.25) for col in df.columns],
+        [&quot;q2()&quot;]+[df[col].quantile(0.50) for col in df.columns],
+        [&quot;q3()&quot;]+[df[col].quantile(0.75) for col in df.columns],
+        [&quot;skew()&quot;]+[&quot;{:.2f}&quot;.format(df[col].skew()) for col in df.columns],
+     ]
+
+display(HTML(tabulate.tabulate(table, talefmt='html')))
+</code></pre>
+
+<p>Hasil run program :</p>
+<p><img alt="img" src="C:\Users\G4030\datamining\docs\datamining.JPG" /></p>
+<p>Contoh program menentukan kurva pada sebuah tabel data.</p>
+<pre><code class="py">import pandas as pd
+import seaborn as sns
+
+df = pd.read_csv(&quot;daftarnilai.csv&quot;,usecols=[0])
+sns.distplot(df)
+</code></pre>
+
+<pre><code>&lt;matplotlib.axes._subplots.AxesSubplot at 0xadb4ed0&gt;
+</code></pre>
+
+<p><img alt="img" src="data:image/png;base64,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" /></p>
+<p>Untuk file lengkapnya dapat dicek <a href="https://github.com/liscafaraep/FR-PenambanganData">di sini</a></p>
+<p>Sumber : </p>
+<p>http://blog.ub.ac.id/adiarsa/2012/03/14/mean-median-modus-dan-standar-deviasi/ </p>
+<p>http://ukurandansatuan.com/cara-menghitung-mean-median-modus-jangkauan-kuartil-desil-dan-persentil.html/</p>
+<p>​    </p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
